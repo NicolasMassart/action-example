@@ -1,0 +1,15 @@
+---
+name: 'Deploy'
+description: 'Composite action to deploy'
+inputs:
+  MESSAGE:
+    description: 'the message for the version to deploy'
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: deploy
+      shell: sh
+      run: |
+        echo -e "This is the deploy message: ${{ inputs.MESSAGE }}"

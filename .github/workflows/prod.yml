@@ -1,0 +1,21 @@
+---
+name: Deploy release
+
+on:
+  release:
+    types: [published]
+    branches: [main]
+
+jobs:
+  deploy:
+    name: deploy release
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - name: checkout code from repos
+        uses: actions/checkout@v2
+
+      - name: Deploy prod
+        uses: ./.github/actions/deploy
+        with:
+          MESSAGE: 'This is prod deployment'

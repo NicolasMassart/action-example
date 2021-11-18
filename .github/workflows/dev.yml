@@ -1,0 +1,22 @@
+---
+name: Deploy dev
+
+# Controls when the action will run.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: #if you want to be able to run it manually
+
+jobs:
+  deploy:
+    name: deploy dev
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      - name: checkout code from repos
+        uses: actions/checkout@v2
+
+      - name: Deploy dev
+        uses: ./.github/actions/deploy
+        with:
+          MESSAGE: 'This is dev deployment'
