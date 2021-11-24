@@ -8,8 +8,8 @@ jobs:
   test:
     name: test label
     runs-on: ubuntu-latest
-#    if: contains(github.event.pull_request.labels.*.name, 'bug')
-    if: github.event.label.name == 'bug' || github.event.label.name == 'documentation'
+    if: contains(github.event.pull_request.labels.*.name, 'bug')
+#    if: github.event.label.name == 'bug' || github.event.label.name == 'documentation'
     steps:
       - name: echo
         run: |
