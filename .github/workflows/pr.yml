@@ -1,0 +1,14 @@
+---
+name: PR
+
+# Controls when the action will run.
+on: [ pull_request ]
+
+jobs:
+  test:
+    name: test variable
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo env
+        shell: sh
+        run: echo "${{ github.event.label.name }}"
