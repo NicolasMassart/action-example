@@ -2,7 +2,9 @@
 name: PR
 
 # Controls when the action will run.
-on: [ pull_request, label ]
+on:
+  pull_request:
+    types: [ labeled ]
 
 jobs:
   test:
