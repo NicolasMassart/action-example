@@ -9,6 +9,8 @@ jobs:
     name: test variable
     runs-on: ubuntu-latest
     steps:
-      - name: echo env
+      - name: Dump context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo -e "$GITHUB_CONTEXT"
         shell: sh
-        run: echo "${{ github.event.label.name }}"
