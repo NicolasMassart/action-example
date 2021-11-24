@@ -13,5 +13,5 @@ jobs:
     steps:
       - name: echo
         run: |
-          echo "${{ join(github.event.issue.labels.*.name, ' | ') }}"
+          echo "${{ join(github.event.pull_request.labels.*.name, ' | ') }}"
         shell: sh
