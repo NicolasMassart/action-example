@@ -11,9 +11,9 @@ jobs:
     steps:
       - name: Dump context
         env:
-          GITHUB_LABEL: ${{ toJson(github.event.label) }}
+          GITHUB_EVENT_CONTEXT: ${{ toJson(github.event) }}
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
-          echo -e "$GITHUB_LABEL"
+          echo -e "GITHUB_EVENT_CONTEXT"
           echo -e "$GITHUB_CONTEXT"
         shell: sh
