@@ -15,7 +15,7 @@ jobs:
           GITHUB_EVENT_LABEL: ${{ toJson(github.event.label.name) }}
 #          GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
-#          echo -e "GITHUB_EVENT_CONTEXT"
+          # echo -e "GITHUB_EVENT_CONTEXT"
           echo -e "GITHUB_EVENT_LABEL"
-#          echo -e "$GITHUB_CONTEXT"
+          # echo -e "$GITHUB_CONTEXT"
         shell: sh
