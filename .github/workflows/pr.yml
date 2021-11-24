@@ -6,17 +6,12 @@ on: [ pull_request ]
 
 jobs:
   test:
-    name: test variable
+    name: test label
     runs-on: ubuntu-latest
-    if: contains(github.event.pull_request.labels.*.name, 'bug')
+#    if: contains(github.event.pull_request.labels.*.name, 'bug')
+    if: github.event.label.name == 'bug' || github.event.label.name == 'documentation'
     steps:
-      - name: Dump context
-        env:
-#          GITHUB_EVENT_CONTEXT: ${{ toJson(github.event) }}
-          GITHUB_EVENT_LABEL: ${{ toJson(github.event.label) }}
-#          GITHUB_CONTEXT: ${{ toJson(github) }}
+      - name: echo
         run: |
-          # echo -e "GITHUB_EVENT_CONTEXT"
-          echo -e "GITHUB_EVENT_LABEL"
-          # echo -e "$GITHUB_CONTEXT"
+          echo "${{ github.event.label.name }}"
         shell: sh
