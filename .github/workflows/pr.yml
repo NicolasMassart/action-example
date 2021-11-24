@@ -8,12 +8,15 @@ jobs:
   test:
     name: test variable
     runs-on: ubuntu-latest
+    if: ${{ github.event.label.name == 'bug' }}
     steps:
       - name: Dump context
         env:
-          GITHUB_LABEL: ${{ toJson(github.event.label) }}
-          GITHUB_CONTEXT: ${{ toJson(github) }}
+#          GITHUB_EVENT_CONTEXT: ${{ toJson(github.event) }}
+          GITHUB_EVENT_LABEL: ${{ toJson(github.event.label) }}
+#          GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
-          echo -e "$GITHUB_LABEL"
-          echo -e "$GITHUB_CONTEXT"
+          # echo -e "GITHUB_EVENT_CONTEXT"
+          echo -e "GITHUB_EVENT_LABEL"
+          # echo -e "$GITHUB_CONTEXT"
         shell: sh
