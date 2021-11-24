@@ -2,7 +2,7 @@
 name: PR
 
 # Controls when the action will run.
-on: [ pull_request ]
+on: [ pull_request, label ]
 
 jobs:
   test:
@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: echo
         run: |
+          echo -e "${{ github.event.label.name }}"
           echo -e "${{ join(github.event.pull_request.labels.*.name, ' | ') }}"
           echo -e "${{ github.event.pull_request.labels[0].name }}"
-          echo -e "${{ toJson(github.event.pull_request.labels[0]) }}"
         shell: sh
