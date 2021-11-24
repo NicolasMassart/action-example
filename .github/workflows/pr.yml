@@ -14,5 +14,5 @@ jobs:
       - name: echo
         run: |
           echo "${{ join(github.event.pull_request.labels.*.name, ' | ') }}"
-          echo "${{ github.event.pull_request.labels[0] }}"
+          echo "${{ toJson(github.event.pull_request.labels[0]) }}"
         shell: sh
