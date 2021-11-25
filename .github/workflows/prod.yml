@@ -10,7 +10,7 @@ jobs:
   deploy:
     name: deploy release
     runs-on: ubuntu-latest
-    environment: prod
+    environment: prod # this env requires a review before deployment run
     steps:
       - name: checkout code from repos
         uses: actions/checkout@v2

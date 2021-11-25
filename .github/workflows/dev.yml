@@ -11,7 +11,7 @@ jobs:
   deploy:
     name: deploy dev
     runs-on: ubuntu-latest
-    environment: dev
+    environment: dev # this env can only run from main branch
     steps:
       - name: checkout code from repos
         uses: actions/checkout@v2
